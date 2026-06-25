@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multistrategy-bioprinter"
+version = "0.1.0"
+description = "Multi-strategy autonomous bioprinting: AI-driven layer decomposition for honeycomb scaffold + geodesic conformal deposition"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Diana Paola Ayala Roldan", email = "diana.ayala@tec.mx"},
+]
+keywords = ["bioprinting", "multi-strategy", "geodesic", "honeycomb", "tissue-engineering"]
+
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "bioprinting-pipeline-livemesh @ git+https://github.com/dianisay/bioprinting-pipeline-livemesh.git",
+    "geodesic-currents @ git+https://github.com/dianisay/geodesic-currents.git",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "trimesh>=4.0",
+    "potpourri3d>=0.0.8",
+]
+
+[project.urls]
+Repository = "https://github.com/dianisay/bioprinting-pipeline-multi-strategy-toolpath"
+"Phase 1 (Honeycomb)" = "https://github.com/dianisay/bioprinting-pipeline-honeycomb"
+"Phase 2 (LiveMesh)" = "https://github.com/dianisay/bioprinting-pipeline-livemesh"
+"Geodesic Library" = "https://github.com/dianisay/geodesic-currents"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
